@@ -7,12 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CurrentAccountFactoryTest {
 
-    private static CurrentAccount currentAccount = CurrentAccountFactory.createCurrentAccount(150,911119,850,6000);
+    private static CurrentAccount currentAccount = CurrentAccountFactory.createCurrentAccount(150,"911119",850,6000);
 
     @Test
     void createCurrentAccount() {
         assertNotNull(currentAccount);
-        assertEquals(911119, currentAccount.getAccountNum());
+        assertEquals("911119", currentAccount.getAccountNum());
         System.out.println(currentAccount);
     }
 }

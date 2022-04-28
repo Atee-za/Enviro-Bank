@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SavingsAccountFactoryTest {
 
-    private static SavingsAccount savingsAccount = SavingsAccountFactory.createSavingsAccount(110,255552,550);
+    private static SavingsAccount savingsAccount = SavingsAccountFactory.createSavingsAccount(110,"255552",550);
 
     @Test
     void createSavingsAccount() {
