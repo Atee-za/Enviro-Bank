@@ -2,11 +2,11 @@ package com.enviro.assessment.grad001.athenkosizono.Domain;
 
 public class CurrentAccount {
     private int id;
-    private long accountNum;
+    private String accountNum;
     private double balance;
     private double overdraft;
 
-    public CurrentAccount(int id, long accountNum, double balance, double overdraft) {
+    public CurrentAccount(int id, String accountNum, double balance, double overdraft) {
         this.id = id;
         this.accountNum = accountNum;
         this.balance = balance;
@@ -21,11 +21,11 @@ public class CurrentAccount {
         this.id = id;
     }
 
-    public long getAccountNum() {
+    public String getAccountNum() {
         return accountNum;
     }
 
-    public void setAccountNum(long accountNum) {
+    public void setAccountNum(String accountNum) {
         this.accountNum = accountNum;
     }
 

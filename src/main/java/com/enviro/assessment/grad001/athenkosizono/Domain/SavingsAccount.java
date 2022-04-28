@@ -2,10 +2,10 @@ package com.enviro.assessment.grad001.athenkosizono.Domain;
 
 public class SavingsAccount {
     private int id;
-    private long accountNum;
+    private String accountNum;
     private double balance;
 
-    public SavingsAccount(int id, long accountNum, double balance){
+    public SavingsAccount(int id, String accountNum, double balance){
         this.id = id;
         this.accountNum = accountNum;
         this.balance = balance;
@@ -19,11 +19,11 @@ public class SavingsAccount {
         this.id = id;
     }
 
-    public long getAccountNum() {
+    public String getAccountNum() {
         return accountNum;
     }
 
-    public void setAccountNumber(long accountNum) {
+    public void setAccountNumber(String accountNum) {
         this.accountNum = accountNum;
     }
 
