@@ -12,13 +12,13 @@ A command menu to interact with tha system is created in order to withdraw or vi
    
 The user is allowed to navigate in the menu using the keyboard keys.
 
-Test cases are created and locates under the test package. NOTE all test cases are coded no framework used.
-To run a test simple run the main method in each test class. There is a total of 6 test classes two in each layer.
+Test cases are created and located under the test package. NOTE all test cases are coded no framework is used.
+To run a test simple run the main method in each test class. There is a total of 6 test classes, two in each layer.
 
 The system is build using Domain Driven Design and Test Driven Design. All Classes and methods are tested accordingly.
 
 The main package has the following layers:
-    Domainn package - containing domain classes and database.
+    Domain package - containing domain classes and database.
     Factory package - containing instantiation of each class. 
     Repository package - containing Interface of Accounts and Accounts repositories.
     Service package = containing Interface of Accounts and Accounts services exposed.
