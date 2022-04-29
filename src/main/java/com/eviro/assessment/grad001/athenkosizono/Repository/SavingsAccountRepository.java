@@ -20,7 +20,7 @@ public class SavingsAccountRepository implements AccountRepository {
     }
 
     @Override
-    public void withdraw(String accountNum, BigDecimal amountToWithdraw) throws Exception {
+    public void withdraw (String accountNum, BigDecimal amountToWithdraw) throws Exception {
         systemDB.withdraw(accountNum, amountToWithdraw);
     }
 
