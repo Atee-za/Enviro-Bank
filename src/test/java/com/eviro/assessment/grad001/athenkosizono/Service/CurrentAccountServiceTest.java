@@ -30,6 +30,7 @@ class CurrentAccountServiceTest {
         testExceededBalance();
         testWithdrawNotFound();
         testingSingleton();
+        testGetAll();
     }
 
     private void currentAccountWithdraw() throws Exception {
@@ -60,13 +61,22 @@ class CurrentAccountServiceTest {
 
     private void testingSingleton(){
         // Checking if database has only 1 instance
-        try{
-            systemDB2.withdraw("PR454",BigDecimal.valueOf(1000));
+        if(systemDB.equals(systemDB2)){
             System.out.println("Test Pass {Accounts in SystemDB are in SystemDB2.}");
         }
-        catch (Exception e){
+        else {
             System.out.println("Test Fail {Other Accounts are not found.}");
         }
+    }
+
+    private void testGetAll(){
+        if(service.getAll().size() > 0){
+            System.out.println("Test Pass {All Accounts retrieved.}");
+        }
+        else{
+            System.out.println("Test Fail {Could NOT retrieve all Accounts.}");
+        }
+        System.out.println(service.getAll());
     }
 
 }

@@ -30,6 +30,7 @@ class SavingsAccountServiceTest {
         testExceededBalance();
         testWithdrawNotFound();
         testSingleton();
+        testGetAll();
     }
 
     private void testServiceWithdraw() throws Exception {
@@ -73,6 +74,16 @@ class SavingsAccountServiceTest {
         else{
             System.out.println("Test Fail {Singleton is NOT applied.}");
         }
+    }
+
+    private void testGetAll(){
+        if(service.getAll().size() > 0){
+            System.out.println("Test Pass {All Accounts retrieved.}");
+        }
+        else{
+            System.out.println("Test Fail {Could NOT retrieve all Accounts.}");
+        }
+        System.out.println(service.getAll());
     }
 
 }
