@@ -25,6 +25,7 @@ class SavingsAccountRepositoryTest {
         testRepositoryWithdraw();
         testExceededBalance();
         testWithdrawNotFound();
+        testGetAll();
     }
 
     private void testRepositoryWithdraw() throws Exception {
@@ -59,6 +60,16 @@ class SavingsAccountRepositoryTest {
         catch (Exception err){
             System.out.println("Test Fail {Account was found.}");
         }
+    }
+
+    private void testGetAll(){
+        if(repository.getAll().size() > 0){
+            System.out.println("Test Pass {All Accounts retrieved.}");
+        }
+        else{
+            System.out.println("Test Fail {Could NOT retrieve all Accounts.}");
+        }
+        System.out.println(repository.getAll());
     }
 
 }
