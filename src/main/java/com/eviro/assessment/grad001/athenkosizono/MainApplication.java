@@ -3,6 +3,8 @@ package com.eviro.assessment.grad001.athenkosizono;
 import com.eviro.assessment.grad001.athenkosizono.Domain.Account;
 import com.eviro.assessment.grad001.athenkosizono.Domain.Database.SystemDB;
 import com.eviro.assessment.grad001.athenkosizono.Factory.*;
+import com.eviro.assessment.grad001.athenkosizono.Service.CurrentAccountService;
+import com.eviro.assessment.grad001.athenkosizono.Service.SavingsAccountService;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.math.BigDecimal;
@@ -14,14 +16,17 @@ public class MainApplication {
 
     private static SystemDB systemDB;
     private static Scanner sc;
+    private static SavingsAccountService savingsAccountService;
+    private static CurrentAccountService currentAccountService;
 
     public static void main(String[] args) throws Exception {
         systemDB = SystemDB.getSystemDB();
         systemDB.addAll(populateData());
+        savingsAccountService = SavingsAccountService.getSavingsAccountService();
+        currentAccountService = CurrentAccountService.getCurrentAccountService();
         sc = new Scanner(System.in);
         menu();
     }
-
 
     private static Set<Account> populateData(){
         Set<Account> accounts = new HashSet<>();
@@ -54,19 +59,29 @@ public class MainApplication {
 
     private static void viewAllData() throws Exception {
         System.out.println("All data.");
-        Set<Account> allData = systemDB.getAll();
+        Set<Account> allData = savingsAccountService.getAll();
         allData.forEach(System.out::println);
         menu();
     }
 
     private static void withdraw() throws Exception {
+        System.out.println("Select account type you want to withdraw from.\n\t1. Savings Account.\n\t2. Current Account.");
+        int accountType = sc.nextInt();
         System.out.println("Enter Account Number.");
         String accountNum = sc.next();
         System.out.println("Enter Amount to withdraw.");
         BigDecimal amount = sc.nextBigDecimal();
         if(!accountNum.isEmpty() && !amount.equals("")){
             try{
-                systemDB.withdraw(accountNum, amount);
+                if(accountType == 1){
+                    savingsAccountService.withdraw(accountNum, amount);
+                }
+                else if(accountType == 2){
+                    currentAccountService.withdraw(accountNum, amount);
+                }
+                else{
+                    System.out.println("Invalid Account type...try again");
+                }
             }
             catch (AccountNotFoundException e){
                 System.out.println("Account Not found!");
@@ -76,7 +91,7 @@ public class MainApplication {
             }
         }
         else{
-            System.out.println("Data NOT provided. Try again...");
+            System.out.println("Data NOT provided. try again...");
         }
         menu();
     }
