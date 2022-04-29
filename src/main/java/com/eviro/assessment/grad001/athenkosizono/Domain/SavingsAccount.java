@@ -1,14 +1,11 @@
 package com.enviro.assessment.grad001.athenkosizono.Domain;
 
-public class SavingsAccount {
-    private int id;
-    private String accountNum;
-    private double balance;
+import java.math.BigDecimal;
 
-    public SavingsAccount(int id, String accountNum, double balance){
-        this.id = id;
-        this.accountNum = accountNum;
-        this.balance = balance;
+public class SavingsAccount extends Account{
+
+    public SavingsAccount(String customerNum, int id, String accountNum, BigDecimal balance){
+        super(customerNum, id, accountNum, balance);
     }
 
     public int getId() {
@@ -27,19 +24,20 @@ public class SavingsAccount {
         this.accountNum = accountNum;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
     @Override
     public String toString() {
         return "SavingsAccount{" +
-                "id=" + id +
-                ", accountNum=" + accountNum +
+                "customerNum='" + customerNum + '\'' +
+                ", id=" + id +
+                ", accountNum='" + accountNum + '\'' +
                 ", balance = R" + balance +
                 '}';
     }
