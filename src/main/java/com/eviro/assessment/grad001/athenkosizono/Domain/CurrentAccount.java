@@ -1,4 +1,4 @@
-package com.enviro.assessment.grad001.athenkosizono.Domain;
+package com.eviro.assessment.grad001.athenkosizono.Domain;
 
 import java.math.BigDecimal;
 
